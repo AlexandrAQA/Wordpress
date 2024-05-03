@@ -3,7 +3,7 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DashboardPage extends BasePage{
+public class DashboardPage extends BasePage {
 
     public static final By DASHBOARD_PAGE_NAME_LOCATOR = By.xpath(".//div[@class='wrap']//h1[contains(text(), 'Dashboard')]");
 
