@@ -7,7 +7,7 @@ public class BasePage {
 
     WebDriver driver;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = Browser.getDriver();
     }
 

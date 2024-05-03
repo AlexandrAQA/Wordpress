@@ -1,5 +1,5 @@
 package org.example.tests;
 
-public class LogOutTest extends BaseTest{
+public class LogOutTest extends BaseTest {
 
 }
