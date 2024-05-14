@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LogOutPage extends BasePage {
+    //здесь наверное буден MainPage
 
     public static final By LOGOUT_LINK = By.xpath(".//a[@id = 'wp-admin-bar-logout']/span");
 

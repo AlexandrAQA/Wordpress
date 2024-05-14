@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import org.apache.log4j.Logger;
 import org.example.pages.DashboardPage;
 import org.example.pages.LoginPage;
 import org.example.utils.PropertyReader;
@@ -9,6 +10,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
+
+    protected static final Logger logger = Logger.getLogger(BaseTest.class);
 
     protected WebDriver driver;
     LoginPage loginPage;
