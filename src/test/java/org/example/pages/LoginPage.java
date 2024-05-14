@@ -17,18 +17,20 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void loginAsStandardAdmin(String username, String password) {
+    public void login(String username, String password) {
         if (username != null) {
             driver.findElement(USERNAME_INPUT_LOCATOR).sendKeys(username);
         }
         if (password != null) {
             driver.findElement(PASSWORD_INPUT_LOCATOR).sendKeys(password);
         }
+        //todo: а если все таки null?
         driver.findElement(REMEMBER_ME_CHECKBOX_LOCATOR).click();
         driver.findElement(LOGIN_BUTTON).submit();
     }
 
     public void openLoginPage() {
+        logger.debug("Opening login page.");
         driver.get("https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin");
     }
 

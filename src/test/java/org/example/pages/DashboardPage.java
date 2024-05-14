@@ -20,7 +20,13 @@ public class DashboardPage extends BasePage {
     }
 
     public boolean isDashboardPageOpened() {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOfElementLocated(DASHBOARD_PAGE_NAME_LOCATOR));
+        new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.visibilityOfElementLocated(DASHBOARD_PAGE_NAME_LOCATOR));
         return driver.findElement(DASHBOARD_PAGE_NAME_LOCATOR).isDisplayed();
+        /*
+        не уверен что вернет False если элемента все-же не будет
+        предлагаюрассмотреть вариант return findElements().size()>0,
+        либо дополнительно обработать в try..catch случай если элемент все-же не найден
+         */
     }
 }
