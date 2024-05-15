@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -16,7 +17,7 @@ public class LoginTest extends BaseTest {
             "Error: The username field is empty.\n" +
                     "Error: The password field is empty.";
 
-    @Test
+    @Test @Severity(SeverityLevel.CRITICAL)
     public void userShouldLoginWithValidCredentials() {
         logger.debug("Test: user Should Login With Valid Credentials: Opening LoginPage.");
         loginPage.openLoginPage(url);
@@ -46,7 +47,7 @@ public class LoginTest extends BaseTest {
                 ERROR_MESSAGE_WHEN_USERNAME_IS_EMPTY, "Correct error message is not displayed");
     }
 
-    @Test
+    @Test @Severity(SeverityLevel.CRITICAL)
     public void userWithEmptyCredentialsShouldNotLogIn() {
         logger.debug("Test: user With Empty Credentials Should Not LogIn");
         loginPage.openLoginPage(url);
@@ -57,7 +58,12 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test
+    @Test @Flaky // This test is marked as flaky for trying Allure annotation
+    @Description("This test checks that user with invalid credentials should not log in.")
+    @Link("https://fake.jira.org")
+    @Issue("TES-123")
+    @TmsLink("TEST-RAIL-TC-123")
+    @Severity(SeverityLevel.CRITICAL)
     public void userWithInvalidCredentialsShouldNotLogIn() {
         logger.debug("Test: user With Invalid Credentials Should Not LogIn: Opening LoginPage.");
         loginPage.openLoginPage(url);

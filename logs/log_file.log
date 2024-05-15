@@ -1,0 +1,147 @@
+2024-05-15 20:54:52 WARN  BaseTest:36 - Login attempt without a password failed as expected.
+2024-05-15 21:52:49 WARN  BaseTest:37 - Login without a password failed as expected.
+2024-05-15 21:53:01 WARN  BaseTest:56 - Login with empty credentials failed as expected.
+2024-05-15 21:53:05 WARN  BaseTest:67 - Login with invalid credentials failed as expected.
+2024-05-15 21:58:04 WARN  BaseTest:37 - Login without a password failed as expected.
+2024-05-15 21:58:17 WARN  BaseTest:56 - Login with empty credentials failed as expected.
+2024-05-15 21:58:21 WARN  BaseTest:67 - Login with invalid credentials failed as expected.
+2024-05-15 22:00:16 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:16 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:00:16 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:16 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:00:16 DEBUG BaseTest:31 - Test: password Should Be Required For Login: Opening LoginPage.
+2024-05-15 22:00:16 DEBUG BasePage:46 - Opening login page.
+2024-05-15 22:00:19 DEBUG BaseTest:33 - Attempting to log in with no password.
+2024-05-15 22:00:19 DEBUG BasePage:30 - trying to login with username: admin and password: 
+2024-05-15 22:00:19 DEBUG BasePage:34 - Entered username and password.
+2024-05-15 22:00:19 DEBUG BasePage:40 - Clicked RememberMe checkbox.
+2024-05-15 22:00:19 DEBUG BasePage:42 - Click on Log In button.
+2024-05-15 22:00:19 DEBUG BasePage:51 - Get error message.
+2024-05-15 22:00:19 WARN  BaseTest:37 - Login without a password failed as expected.
+2024-05-15 22:00:19 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:00:19 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:00:20 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:20 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:00:20 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:20 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:00:20 DEBUG BaseTest:21 - Test: user Should Login With Valid Credentials: Opening LoginPage.
+2024-05-15 22:00:20 DEBUG BasePage:46 - Opening login page.
+2024-05-15 22:00:23 DEBUG BaseTest:23 - login with valid credentials.
+2024-05-15 22:00:23 DEBUG BasePage:30 - trying to login with username: admin and password: kiyF5Oc#*8iE9DKx8bACg2DR
+2024-05-15 22:00:23 DEBUG BasePage:34 - Entered username and password.
+2024-05-15 22:00:23 DEBUG BasePage:40 - Clicked RememberMe checkbox.
+2024-05-15 22:00:26 DEBUG BasePage:42 - Click on Log In button.
+2024-05-15 22:00:26 DEBUG BaseTest:26 - User logged in successfully with valid credentials.
+2024-05-15 22:00:26 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:00:26 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:00:28 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:28 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:00:28 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:28 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:00:28 DEBUG BaseTest:51 - Test: user With Empty Credentials Should Not LogIn
+2024-05-15 22:00:28 DEBUG BasePage:46 - Opening login page.
+2024-05-15 22:00:30 DEBUG BasePage:30 - trying to login with username:  and password: 
+2024-05-15 22:00:31 DEBUG BasePage:34 - Entered username and password.
+2024-05-15 22:00:31 DEBUG BasePage:40 - Clicked RememberMe checkbox.
+2024-05-15 22:00:31 DEBUG BasePage:42 - Click on Log In button.
+2024-05-15 22:00:31 DEBUG BasePage:56 - Get error message for empty username.
+2024-05-15 22:00:31 WARN  BaseTest:56 - Login with empty credentials failed as expected.
+2024-05-15 22:00:31 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:00:31 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:00:32 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:32 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:00:32 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:32 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:00:32 DEBUG BaseTest:62 - Test: user With Invalid Credentials Should Not LogIn: Opening LoginPage.
+2024-05-15 22:00:32 DEBUG BasePage:46 - Opening login page.
+2024-05-15 22:00:35 DEBUG BasePage:30 - trying to login with username: invalidUserName and password: invalidPassword
+2024-05-15 22:00:35 DEBUG BasePage:34 - Entered username and password.
+2024-05-15 22:00:35 DEBUG BasePage:40 - Clicked RememberMe checkbox.
+2024-05-15 22:00:35 DEBUG BasePage:42 - Click on Log In button.
+2024-05-15 22:00:35 DEBUG BasePage:61 - Get error message for invalid credentials.
+2024-05-15 22:00:35 WARN  BaseTest:67 - Login with invalid credentials failed as expected.
+2024-05-15 22:00:35 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:00:36 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:00:37 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:37 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:00:37 DEBUG BasePage:15 - Initialized BasePage with driver.
+2024-05-15 22:00:37 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:00:37 DEBUG BaseTest:42 - Test: username Should Be Required For Login: Opening LoginPage.
+2024-05-15 22:00:37 DEBUG BasePage:46 - Opening login page.
+2024-05-15 22:00:39 DEBUG BasePage:30 - trying to login with username:  and password: kiyF5Oc#*8iE9DKx8bACg2DR
+2024-05-15 22:00:39 DEBUG BasePage:34 - Entered username and password.
+2024-05-15 22:00:39 DEBUG BasePage:40 - Clicked RememberMe checkbox.
+2024-05-15 22:00:40 DEBUG BasePage:42 - Click on Log In button.
+2024-05-15 22:00:40 DEBUG BasePage:51 - Get error message.
+2024-05-15 22:00:40 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:00:40 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:41:49 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:41:49 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:41:49 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:41:49 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:41:49 DEBUG BaseTest:31 - Test: password Should Be Required For Login: Opening LoginPage.
+2024-05-15 22:41:49 DEBUG BasePage:49 - Opening login page.
+2024-05-15 22:41:52 DEBUG BaseTest:33 - Attempting to log in with no password.
+2024-05-15 22:41:52 DEBUG BasePage:32 - trying to login with username: admin and password: 
+2024-05-15 22:41:52 DEBUG BasePage:36 - Entered username and password.
+2024-05-15 22:41:52 DEBUG BasePage:42 - Clicked RememberMe checkbox.
+2024-05-15 22:41:53 DEBUG BasePage:44 - Click on Log In button.
+2024-05-15 22:41:53 DEBUG BasePage:55 - Get error message.
+2024-05-15 22:41:53 WARN  BaseTest:37 - Login without a password failed as expected.
+2024-05-15 22:41:53 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:41:53 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:41:54 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:41:54 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:41:54 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:41:54 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:41:54 DEBUG BaseTest:21 - Test: user Should Login With Valid Credentials: Opening LoginPage.
+2024-05-15 22:41:54 DEBUG BasePage:49 - Opening login page.
+2024-05-15 22:41:57 DEBUG BaseTest:23 - login with valid credentials.
+2024-05-15 22:41:57 DEBUG BasePage:32 - trying to login with username: admin and password: kiyF5Oc#*8iE9DKx8bACg2DR
+2024-05-15 22:41:57 DEBUG BasePage:36 - Entered username and password.
+2024-05-15 22:41:57 DEBUG BasePage:42 - Clicked RememberMe checkbox.
+2024-05-15 22:42:01 DEBUG BasePage:44 - Click on Log In button.
+2024-05-15 22:42:01 DEBUG BaseTest:26 - User logged in successfully with valid credentials.
+2024-05-15 22:42:01 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:42:01 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:42:02 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:42:02 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:42:02 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:42:02 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:42:02 DEBUG BaseTest:51 - Test: user With Empty Credentials Should Not LogIn
+2024-05-15 22:42:02 DEBUG BasePage:49 - Opening login page.
+2024-05-15 22:42:05 DEBUG BasePage:32 - trying to login with username:  and password: 
+2024-05-15 22:42:05 DEBUG BasePage:36 - Entered username and password.
+2024-05-15 22:42:05 DEBUG BasePage:42 - Clicked RememberMe checkbox.
+2024-05-15 22:42:05 DEBUG BasePage:44 - Click on Log In button.
+2024-05-15 22:42:05 DEBUG BasePage:61 - Get error message for empty username.
+2024-05-15 22:42:05 WARN  BaseTest:56 - Login with empty credentials failed as expected.
+2024-05-15 22:42:05 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:42:06 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:42:06 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:42:06 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:42:06 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:42:06 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:42:06 DEBUG BaseTest:62 - Test: user With Invalid Credentials Should Not LogIn: Opening LoginPage.
+2024-05-15 22:42:06 DEBUG BasePage:49 - Opening login page.
+2024-05-15 22:42:09 DEBUG BasePage:32 - trying to login with username: invalidUserName and password: invalidPassword
+2024-05-15 22:42:09 DEBUG BasePage:36 - Entered username and password.
+2024-05-15 22:42:09 DEBUG BasePage:42 - Clicked RememberMe checkbox.
+2024-05-15 22:42:10 DEBUG BasePage:44 - Click on Log In button.
+2024-05-15 22:42:10 DEBUG BasePage:67 - Get error message for invalid credentials.
+2024-05-15 22:42:10 WARN  BaseTest:67 - Login with invalid credentials failed as expected.
+2024-05-15 22:42:10 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:42:11 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
+2024-05-15 22:42:12 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:42:12 DEBUG BasePage:19 - Initialized LoginPage with driver.
+2024-05-15 22:42:12 DEBUG BasePage:14 - Initialized BasePage with driver.
+2024-05-15 22:42:12 DEBUG BaseTest:35 - Test setup completed with browser: CHROME
+2024-05-15 22:42:12 DEBUG BaseTest:42 - Test: username Should Be Required For Login: Opening LoginPage.
+2024-05-15 22:42:12 DEBUG BasePage:49 - Opening login page.
+2024-05-15 22:42:15 DEBUG BasePage:32 - trying to login with username:  and password: kiyF5Oc#*8iE9DKx8bACg2DR
+2024-05-15 22:42:15 DEBUG BasePage:36 - Entered username and password.
+2024-05-15 22:42:15 DEBUG BasePage:42 - Clicked RememberMe checkbox.
+2024-05-15 22:42:15 DEBUG BasePage:44 - Click on Log In button.
+2024-05-15 22:42:15 DEBUG BasePage:55 - Get error message.
+2024-05-15 22:42:15 DEBUG BaseTest:40 - tearDown() is started.
+2024-05-15 22:42:16 DEBUG BaseTest:42 - Browser.quitDriver() is completed.
