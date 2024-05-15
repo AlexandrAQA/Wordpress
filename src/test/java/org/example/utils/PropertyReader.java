@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class PropertyReader {
     private static final String FILE_PATH = "project.properties";
-    private Properties properties;
+    private final Properties properties;
 
     public PropertyReader() {
         properties = new Properties();
@@ -27,6 +27,10 @@ public class PropertyReader {
 
     public String getBrowser() {
         return properties.getProperty("browser");
+    }
+
+    public String getBaseUrl() {
+        return properties.getProperty("PROD_URL");
     }
 }
 

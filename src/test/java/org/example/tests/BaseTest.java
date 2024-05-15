@@ -21,6 +21,7 @@ public class BaseTest {
     String username;
     String password;
     String browser;
+    String url;
 
     @BeforeMethod
     public void setUp() {
@@ -30,10 +31,14 @@ public class BaseTest {
         browser = propertyReader.getBrowser();
         username = propertyReader.getUsername();
         password = propertyReader.getPassword();
+        url = propertyReader.getBaseUrl();
+        logger.debug("Test setup completed with browser: " + browser);
     }
 
     @AfterMethod
     public void tearDown() {
+        logger.debug("tearDown() is started.");
         Browser.quitDriver();
+        logger.debug("Browser.quitDriver() is completed.");
     }
 }

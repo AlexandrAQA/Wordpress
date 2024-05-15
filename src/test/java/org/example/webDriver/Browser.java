@@ -26,7 +26,7 @@ public class Browser {
             throw new RuntimeException("Browser type is not specified in the project.properties file");
         }
     }
-    //todo: should I implement multi threading?
+
     public static WebDriver getDriver() {
         if (driver == null) {
             initDriver();
@@ -37,7 +37,7 @@ public class Browser {
     public static void quitDriver() {
         if (driver != null) {
             driver.quit();
-            driver = null;  //todo: should I delete this line?
+            driver = null;
         }
     }
 }

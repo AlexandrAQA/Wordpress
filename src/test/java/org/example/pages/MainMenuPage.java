@@ -13,4 +13,9 @@ public class MainMenuPage extends BasePage {
     public MainMenuPage(WebDriver driver) {
         super(driver);
     }
+
+    @Override
+    public boolean isDisplayed() {
+        return false;
+    }
 }
