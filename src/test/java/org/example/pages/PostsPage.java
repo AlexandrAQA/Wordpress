@@ -10,4 +10,9 @@ public class PostsPage extends BasePage {
     public PostsPage(WebDriver driver) {
         super(driver);
     }
+
+    @Override
+    public boolean isDisplayed() {
+        return false;
+    }
 }

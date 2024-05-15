@@ -11,4 +11,9 @@ public class MediaPage extends BasePage {
     public MediaPage(WebDriver driver) {
         super(driver);
     }
+
+    @Override
+    public boolean isDisplayed() {
+        return false;
+    }
 }

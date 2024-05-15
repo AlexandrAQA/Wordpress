@@ -12,4 +12,9 @@ public class PagesPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public boolean isDisplayed() {
+        return false;
+    }
+
 }
