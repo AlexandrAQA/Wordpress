@@ -80,9 +80,6 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
-                    <compilerArgs>
-                        <arg>--enable-preview</arg>
-                    </compilerArgs>
                 </configuration>
             </plugin>
 
@@ -101,7 +98,7 @@
                         <suiteXmlFile>src/smoke.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
-                        --enable-preview -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                 </configuration>
                 <dependencies>
