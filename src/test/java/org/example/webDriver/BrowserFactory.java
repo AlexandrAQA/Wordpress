@@ -31,7 +31,7 @@ public class BrowserFactory {
                 driver = new ChromeDriver(mobileOptions);
                 break;
             default:
-                throw new IllegalArgumentException(STR."Unsupported browser type: \{browserTypeEnum}");
+                throw new IllegalArgumentException("Browser not supported. Please check your configuration.");
         }
         return driver;
     }
