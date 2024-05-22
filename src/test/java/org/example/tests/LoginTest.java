@@ -1,11 +1,14 @@
 package org.example.tests;
 
 import io.qameta.allure.*;
+import io.qameta.allure.testng.AllureTestNg;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+@Listeners({AllureTestNg.class})
 public class LoginTest extends BaseTest {
 
     private static final String ERROR_MESSAGE_WHEN_PASSWORD_IS_EMPTY = "Error: The password field is empty.";
