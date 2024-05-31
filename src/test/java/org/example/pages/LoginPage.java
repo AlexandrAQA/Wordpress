@@ -3,6 +3,8 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.NoSuchElementException;
+
 public class LoginPage extends BasePage {
 
     private static final By USERNAME_INPUT_LOCATOR = By.xpath(".//input[@id = 'user_login']");
@@ -21,11 +23,25 @@ public class LoginPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-
         logger.debug("Checking if login page is displayed.");
-        // todo: Implement the logic to check if the page is displayed
-        return false;
+        try {
+            if (driver.findElement(LOGIN_BUTTON).isDisplayed() &&
+                    driver.findElement(USERNAME_INPUT_LOCATOR).isDisplayed() &&
+                    driver.findElement(PASSWORD_INPUT_LOCATOR).isDisplayed() &&
+                    driver.findElement(REMEMBER_ME_CHECKBOX_LOCATOR).isDisplayed()) {
+
+                logger.debug("Login page is displayed.");
+                return true;
+            } else {
+                logger.error("Login page is not displayed.");
+                return false;
+            }
+        } catch (NoSuchElementException noSuchElementException) {
+            logger.error("Login page is not displayed. Element not found.", noSuchElementException);
+            return false;
+        }
     }
+
 
     public void login(String username, String password) {
 

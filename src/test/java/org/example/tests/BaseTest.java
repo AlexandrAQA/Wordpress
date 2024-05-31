@@ -1,23 +1,31 @@
 package org.example.tests;
 
 import org.apache.log4j.Logger;
-import org.example.pages.DashboardPage;
 import org.example.pages.LoginPage;
+import org.example.pages.MainPage;
+import org.example.pages.MediaPage;
+import org.example.pages.PostsPage;
 import org.example.utils.PropertyReader;
 import org.example.webDriver.Browser;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.time.Duration;
 
 public class BaseTest {
 
     protected static final Logger logger = Logger.getLogger(BaseTest.class);
 
-    protected WebDriver driver;
+    public WebDriver driver;
+    public WebDriverWait wait;
+    Actions actions;
     LoginPage loginPage;
-    DashboardPage dashboardPage;
+    MainPage mainPage;
+    PostsPage postsPage;
+    MediaPage mediaPage;
 
     PropertyReader propertyReader;
     String username;
@@ -28,25 +36,21 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--window-size=1920,1080");
-        options.addArguments("--remote-allow-origins=*");
+        driver = Browser.getDriver();
 
-        driver = new ChromeDriver(options);
-
-        driver = new ChromeDriver(options);
         propertyReader = new PropertyReader();
         loginPage = new LoginPage(driver);
-        dashboardPage = new DashboardPage(driver);
+        mainPage = new MainPage(driver);
+        postsPage = new PostsPage(driver);
+        mediaPage = new MediaPage(driver);
+
         browser = propertyReader.getBrowser();
         username = propertyReader.getUsername();
         password = propertyReader.getPassword();
         url = propertyReader.getBaseUrl();
         logger.debug("Test setup completed with browser: " + browser);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        actions = new Actions(driver);
     }
 
     @AfterMethod
