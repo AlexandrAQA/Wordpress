@@ -19,8 +19,14 @@ public class DashboardPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public boolean isDisplayed() {
+        return false;
+    }
+
     public boolean isDashboardPageOpened() {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOfElementLocated(DASHBOARD_PAGE_NAME_LOCATOR));
-        return driver.findElement(DASHBOARD_PAGE_NAME_LOCATOR).isDisplayed();
+        new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.visibilityOfElementLocated(DASHBOARD_PAGE_NAME_LOCATOR));
+        return !driver.findElements(DASHBOARD_PAGE_NAME_LOCATOR).isEmpty();
     }
 }
