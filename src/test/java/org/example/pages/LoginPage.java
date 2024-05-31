@@ -14,50 +14,57 @@ public class LoginPage extends BasePage {
     private static final By ERROR_MESSAGE_WHEN_INVALID_CREDENTIALS_LOCATOR = By.xpath(".//div[text()=' The username ']");
 
     public LoginPage(WebDriver driver) {
+
         super(driver);
+        logger.debug("Initialized LoginPage with driver.");
     }
 
-    public void loginAsStandardAdmin(String username, String password) {
-        if (username != null) {
-            driver.findElement(USERNAME_INPUT_LOCATOR).sendKeys(username);
-        }
-        if (password != null) {
-            driver.findElement(PASSWORD_INPUT_LOCATOR).sendKeys(password);
-        }
-        driver.findElement(REMEMBER_ME_CHECKBOX_LOCATOR).click();
-        driver.findElement(LOGIN_BUTTON).submit();
-    }
+    @Override
+    public boolean isDisplayed() {
 
-    public void openLoginPage() {
-        driver.get("https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin");
-    }
-
-    public void invalidLogin(String username, String password) {
-        driver.findElement(USERNAME_INPUT_LOCATOR).sendKeys(username);
-        driver.findElement(PASSWORD_INPUT_LOCATOR).sendKeys(password);
-        driver.findElement(REMEMBER_ME_CHECKBOX_LOCATOR).click();
-        driver.findElement(LOGIN_BUTTON).submit();
-    }
-
-    public boolean isLoginButtonVisible() {
-        // check if login button is visible
+        logger.debug("Checking if login page is displayed.");
+        // todo: Implement the logic to check if the page is displayed
         return false;
     }
 
+    public void login(String username, String password) {
+
+        logger.debug("trying to login with username: " + username + " and password: " + password);
+        if (username != null && password != null) {
+            driver.findElement(USERNAME_INPUT_LOCATOR).sendKeys(username);
+            driver.findElement(PASSWORD_INPUT_LOCATOR).sendKeys(password);
+            logger.debug("Entered username and password.");
+        } else {
+            logger.error("Something went wrong: Password or Username can not be null");
+            throw new IllegalArgumentException("Password or Username can not be null");
+        }
+        driver.findElement(REMEMBER_ME_CHECKBOX_LOCATOR).click();
+        logger.debug("Clicked RememberMe checkbox.");
+        driver.findElement(LOGIN_BUTTON).submit();
+        logger.debug("Click on Log In button.");
+    }
+
+    public void openLoginPage(String url) {
+
+        logger.debug("Opening login page.");
+        driver.get(url);
+    }
+
     public String getErrorMessage() {
+
+        logger.debug("Get error message.");
         return driver.findElement(ERROR_MESSAGE_LOCATOR).getText();
     }
 
     public String getErrorMessageWhenEmptyUsername() {
+
+        logger.debug("Get error message for empty username.");
         return driver.findElement(ERROR_MESSAGE_WHEN_EMPTY_USERNAME_LOCATOR).getText();
     }
 
     public String getErrorMessageWhenInvalidCredentials() {
-        return driver.findElement(ERROR_MESSAGE_WHEN_INVALID_CREDENTIALS_LOCATOR).getText();
-    }
 
-    public boolean isLoginSuccessful() {
-        // check if login is successful
-        return false;
+        logger.debug("Get error message for invalid credentials.");
+        return driver.findElement(ERROR_MESSAGE_WHEN_INVALID_CREDENTIALS_LOCATOR).getText();
     }
 }

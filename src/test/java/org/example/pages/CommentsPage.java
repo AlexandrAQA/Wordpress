@@ -11,4 +11,9 @@ public class CommentsPage extends BasePage {
     public CommentsPage(WebDriver driver) {
         super(driver);
     }
+
+    @Override
+    public boolean isDisplayed() {
+        return false;
+    }
 }
