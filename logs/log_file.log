@@ -2077,17 +2077,48 @@ View Stats
 2024-05-30 17:55:04 DEBUG BasePage:58 - Clicked RememberMe checkbox.
 2024-05-30 17:55:09 DEBUG BasePage:60 - Click on Log In button.
 2024-05-30 18:21:43 DEBUG BaseTest:58 - tearDown() is started.
-2024-05-30 18:23:04 DEBUG BasePage:20 - Initialized BasePage with driver.
-2024-05-30 18:23:04 DEBUG BasePage:21 - Initialized LoginPage with driver.
-2024-05-30 18:23:04 DEBUG BasePage:20 - Initialized BasePage with driver.
-2024-05-30 18:23:04 DEBUG BasePage:20 - Initialized BasePage with driver.
-2024-05-30 18:23:04 DEBUG BasePage:20 - Initialized BasePage with driver.
-2024-05-30 18:23:04 DEBUG BaseTest:51 - Test setup completed with browser: CHROME
-2024-05-30 18:23:04 DEBUG BaseTest:32 - Test: user Should Create Post: Opening DashboardPage.
-2024-05-30 18:23:04 DEBUG BasePage:65 - Opening login page.
-2024-05-30 18:23:07 DEBUG BasePage:48 - trying to login with username: admin and password: kiyF5Oc#*8iE9DKx8bACg2DR
-2024-05-30 18:23:07 DEBUG BasePage:52 - Entered username and password.
-2024-05-30 18:23:08 DEBUG BasePage:58 - Clicked RememberMe checkbox.
-2024-05-30 18:23:13 DEBUG BasePage:60 - Click on Log In button.
-2024-05-30 18:23:25 DEBUG BaseTest:58 - tearDown() is started.
-2024-05-30 18:23:26 DEBUG BaseTest:60 - Browser.quitDriver() is completed.
+2024-05-31 10:52:06 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 10:52:06 DEBUG BasePage:21 - Initialized LoginPage with driver.
+2024-05-31 10:52:06 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 10:52:06 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 10:52:06 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 10:52:06 DEBUG BaseTest:51 - Test setup completed with browser: CHROME
+2024-05-31 10:52:06 DEBUG BaseTest:11 - Test: user Should Create Post: Opening DashboardPage.
+2024-05-31 10:52:06 DEBUG BasePage:65 - Opening login page.
+2024-05-31 10:52:09 DEBUG BasePage:48 - trying to login with username: admin and password: kiyF5Oc#*8iE9DKx8bACg2DR
+2024-05-31 10:52:09 DEBUG BasePage:52 - Entered username and password.
+2024-05-31 10:52:09 DEBUG BasePage:58 - Clicked RememberMe checkbox.
+2024-05-31 10:52:15 DEBUG BasePage:60 - Click on Log In button.
+2024-05-31 10:52:30 DEBUG BaseTest:58 - tearDown() is started.
+2024-05-31 10:52:30 DEBUG BaseTest:60 - Browser.quitDriver() is completed.
+2024-05-31 10:55:09 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 10:55:09 DEBUG BasePage:21 - Initialized LoginPage with driver.
+2024-05-31 10:55:09 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 10:55:09 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:12:43 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:12:43 DEBUG BasePage:21 - Initialized LoginPage with driver.
+2024-05-31 11:12:43 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:12:43 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:12:43 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:12:43 DEBUG BaseTest:51 - Test setup completed with browser: CHROME
+2024-05-31 11:12:43 DEBUG BaseTest:9 - Test: user Should Create Post: Opening DashboardPage.
+2024-05-31 11:12:43 DEBUG BasePage:65 - Opening login page.
+2024-05-31 11:12:47 DEBUG BasePage:48 - trying to login with username: admin and password: kiyF5Oc#*8iE9DKx8bACg2DR
+2024-05-31 11:12:47 DEBUG BasePage:52 - Entered username and password.
+2024-05-31 11:12:47 DEBUG BasePage:58 - Clicked RememberMe checkbox.
+2024-05-31 11:12:51 DEBUG BasePage:60 - Click on Log In button.
+2024-05-31 11:13:03 DEBUG BaseTest:58 - tearDown() is started.
+2024-05-31 11:13:03 DEBUG BaseTest:60 - Browser.quitDriver() is completed.
+2024-05-31 11:14:44 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:14:44 DEBUG BasePage:21 - Initialized LoginPage with driver.
+2024-05-31 11:14:44 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:14:44 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:14:44 DEBUG BasePage:20 - Initialized BasePage with driver.
+2024-05-31 11:14:44 DEBUG BaseTest:51 - Test setup completed with browser: CHROME
+2024-05-31 11:14:44 DEBUG BaseTest:9 - Test: user Should Create Post: Opening DashboardPage.
+2024-05-31 11:14:44 DEBUG BasePage:65 - Opening login page.
+2024-05-31 11:14:48 DEBUG BasePage:48 - trying to login with username: admin and password: kiyF5Oc#*8iE9DKx8bACg2DR
+2024-05-31 11:14:48 DEBUG BasePage:52 - Entered username and password.
+2024-05-31 11:14:48 DEBUG BasePage:58 - Clicked RememberMe checkbox.
+2024-05-31 11:14:52 DEBUG BasePage:60 - Click on Log In button.
+2024-05-31 11:43:21 DEBUG BaseTest:58 - tearDown() is started.
