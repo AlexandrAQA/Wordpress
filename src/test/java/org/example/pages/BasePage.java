@@ -16,6 +16,7 @@ public abstract class BasePage {
     protected WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(25));
 
     public BasePage(WebDriver driver) {
+
         this.driver = Browser.getDriver();
         logger.debug("Initialized BasePage with driver.");
     }
@@ -23,6 +24,7 @@ public abstract class BasePage {
     public abstract boolean isDisplayed();
 
     public void openPage(String url) {
+
         //todo: add wait here and implement it in the child classes
         logger.debug("Opening page: " + url);
         driver.get(url);
