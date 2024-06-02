@@ -15,8 +15,8 @@ public abstract class BasePage {
     protected Actions actions = new Actions(Browser.getDriver());
     protected WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(25));
 
-    public BasePage(WebDriver driver) {
 
+    public BasePage(WebDriver driver) {
         this.driver = Browser.getDriver();
         logger.debug("Initialized BasePage with driver.");
     }
