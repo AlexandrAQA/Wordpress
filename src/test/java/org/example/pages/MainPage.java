@@ -6,11 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.NoSuchElementException;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class MainPage extends BasePage {
 
@@ -54,7 +50,6 @@ public class MainPage extends BasePage {
             return false;
         }
     }
-
 
 
     public boolean isLoginSuccessful() {

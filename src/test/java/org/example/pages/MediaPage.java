@@ -32,10 +32,8 @@ public class MediaPage extends BasePage {
     public void uploadMediaContent() {
         driver.get("https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin/media-new.php");
 
-        // Choose file
         WebElement uploadElement = driver.findElement(CHOOSE_FILE_LOCATOR);
         uploadElement.sendKeys("C:\\My_Files\\ItAcademyCourse\\code\\Wordpress\\src\\test\\resources\\image.png");
-        //Upload
         driver.findElement(UPLOAD_NEW_MEDIA_BUTTON_LOCATOR).click();
     }
 
