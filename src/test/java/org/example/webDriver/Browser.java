@@ -19,8 +19,9 @@ public class Browser {
         PropertyReader propertyReader = new PropertyReader();
         String browserType = propertyReader.getBrowser();
         if (browserType != null) {
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             driver.manage().window().maximize();
         } else {
             throw new RuntimeException("Browser type is not specified in the project.properties file");

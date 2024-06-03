@@ -121,7 +121,7 @@
                             <goal>report</goal>
                         </goals>
                         <configuration>
-                            <resultsDirectory>${project.build.directory}/allure-report</resultsDirectory>
+                            <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
                         </configuration>
                     </execution>
                 </executions>
