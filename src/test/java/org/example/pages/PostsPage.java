@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,30 +45,13 @@ public class PostsPage extends BasePage {
         return elements.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
-// todo   @FindBy(xpath = ".//iframe[@name='editor-canvas']")
-//    public WebElement iframe;
+    // todo: @FindBy(xpath = ".//iframe[@name='editor-canvas']")
+    //       public WebElement iframe;
+    // is it better to use @FindBy annotation?
 
     public void openPostPageAndClickOnCreatingPost() {
         driver.get(POSTS_PAGE_URL);
         driver.findElement(ADD_NEW_POST_BUTTON_LOCATOR).click();
-    }
-
-    public void createNewPost(String title, String text) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement iframe = driver.findElement(By.xpath(".//iframe[@name='editor-canvas']"));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated((By) iframe));
-//        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
-        driver.switchTo().frame(iframe);
-        driver.switchTo().defaultContent();
-        driver.findElement(ADD_TITLE_LOCATOR);
-        driver.findElement(PUBLISH_BUTTON_LOCATOR);
-        driver.switchTo().frame(iframe);
-        driver.switchTo().defaultContent();
-        driver.findElement(ADD_TITLE_LOCATOR).isEnabled();
-
-        driver.findElement(PUBLISH_BUTTON_LOCATOR).click();
-        //clickTitleAndTextToSendKeys(title, text);
     }
 
     public void clickTitleAndTextToSendKeys(String title, String text) {
@@ -79,16 +60,16 @@ public class PostsPage extends BasePage {
         driver.findElement(PUBLISH_BUTTON_LOCATOR).click();
     }
 
-
-    public void createPost2(String title, String text) {
+    public void createNewPost(String title, String text) {
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath(".//iframe[@name='editor-canvas']")));
         driver.switchTo().defaultContent();
         driver.switchTo().frame(driver.findElement(By.xpath(".//iframe[@name='editor-canvas']")));
-        WebElement element1 = driver.findElement(By.className("edit-post-visual-editor__post-title-wrapper"));
-        element1.click();
-        WebElement element2 = element1.findElement(By.xpath(".//h1[@contenteditable='true']"));
-        element2.clear();
-        element2.sendKeys(title);
+        WebElement wrapper = driver.findElement(By.className("edit-post-visual-editor__post-title-wrapper"));
+        wrapper.click();
+        WebElement contenteditableTrue = wrapper.findElement(By.xpath(".//h1[@contenteditable='true']"));
+        contenteditableTrue.clear();
+        contenteditableTrue.sendKeys(title);
         driver.switchTo().defaultContent();
+        System.out.println("Title is added");
     }
 }
