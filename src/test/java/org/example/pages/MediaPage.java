@@ -27,7 +27,11 @@ public class MediaPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return false;
+        try {
+            return driver.findElement(MEDIA_PAGE_HEADER_LOCATOR).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 
     public void uploadMediaContent() {

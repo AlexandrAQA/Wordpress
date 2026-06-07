@@ -1,12 +1,12 @@
 # WordPress UI Test Automation Framework
 
 [![Java](https://img.shields.io/badge/Java-11-orange.svg)](https://www.oracle.com/java/)
-[![Selenium](https://img.shields.io/badge/Selenium-4.15-43B02A.svg)](https://www.selenium.dev/)
-[![TestNG](https://img.shields.io/badge/TestNG-7.9-red.svg)](https://testng.org/)
-[![Allure](https://img.shields.io/badge/Allure-2.24-yellow.svg)](https://allurereport.org/)
+[![Selenium](https://img.shields.io/badge/Selenium-4.27-43B02A.svg)](https://www.selenium.dev/)
+[![TestNG](https://img.shields.io/badge/TestNG-7.10-red.svg)](https://testng.org/)
+[![Allure](https://img.shields.io/badge/Allure-2.29-yellow.svg)](https://allurereport.org/)
 [![Build](https://img.shields.io/badge/build-Maven-blue.svg)](https://maven.apache.org/)
 
-End-to-end UI test automation for the WordPress admin panel, built with **Selenium WebDriver**, **TestNG**, and the **Page Object Model**. The suite covers authentication, post creation, media upload, quick drafts, and logout, with **Allure** reporting, **Log4j** logging, and a **Docker**-based headless run for CI.
+End-to-end UI test automation for the WordPress admin panel, built with **Selenium WebDriver**, **TestNG**, and the **Page Object Model**. The suite covers authentication, post creation, media upload, quick drafts, and logout, with **Allure** reporting, **SLF4J + Logback** logging, and a **Docker**-based headless run for CI.
 
 > The tests run against the public practice instance
 > [`wordpress-test-app-for-selenium.azurewebsites.net`](https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin).
@@ -17,11 +17,11 @@ End-to-end UI test automation for the WordPress admin panel, built with **Seleni
 
 - **Page Object Model** – every WordPress screen is a dedicated page class, keeping locators and actions out of the tests.
 - **Singleton WebDriver** – a single browser instance per test is managed in [`Browser`](src/test/java/org/example/webDriver/Browser.java).
-- **Browser Factory + Enum** – switch browsers (Chrome / Firefox / Edge / mobile-emulated Chrome) through configuration, not code.
+- **Browser Factory + Enum** – the configured `browser` value drives [`BrowserFactory`](src/test/java/org/example/webDriver/BrowserFactory.java) to start Chrome, Firefox, Edge, or a mobile-emulated Chrome, no code changes required.
 - **Automatic driver management** – [WebDriverManager](https://github.com/bonigarcia/webdrivermanager) downloads the correct driver at runtime; no binaries committed to the repo.
-- **Externalized configuration** – browser, base URL, and credentials live in `project.properties` and are read via [`PropertyReader`](src/test/java/org/example/utils/PropertyReader.java).
+- **Externalized configuration** – browser, base URL, and credentials live in a git-ignored `project.properties` (see `project.properties.example`) and are read via [`PropertyReader`](src/test/java/org/example/utils/PropertyReader.java).
 - **Allure reporting** – rich reports with severities, descriptions, links, issues, TMS links, and flaky markers.
-- **Structured logging** – debug/info/warn logging through Log4j (`log4j.properties`).
+- **Structured logging** – debug/info/warn/error logging through SLF4J + Logback (`logback.xml`).
 - **Test data generation** – random data helpers in [`TestDataGenerator`](src/test/java/org/example/utils/TestDataGenerator.java).
 - **Dockerized run** – a `Dockerfile` provisions Chrome + ChromeDriver + JDK and runs the suite headlessly with `Xvfb`, ready for CI/Jenkins.
 
@@ -32,11 +32,11 @@ End-to-end UI test automation for the WordPress admin panel, built with **Seleni
 | Area              | Tool / Library                          |
 |-------------------|-----------------------------------------|
 | Language          | Java 11                                 |
-| UI automation     | Selenium WebDriver 4.15                 |
-| Test runner       | TestNG 7.9                              |
-| Reporting         | Allure 2.24                             |
-| Driver management | WebDriverManager 5.6                    |
-| Logging           | Log4j 1.2 / Logback                     |
+| UI automation     | Selenium WebDriver 4.27                 |
+| Test runner       | TestNG 7.10                             |
+| Reporting         | Allure 2.29                             |
+| Driver management | WebDriverManager 5.9                    |
+| Logging           | SLF4J + Logback                         |
 | Build             | Maven                                   |
 | Containerization  | Docker (Ubuntu + Chrome + Xvfb)         |
 
@@ -74,11 +74,11 @@ src/
     │       └── BrowserTypeEnum.java
     └── resources/
         ├── allure.properties
-        ├── log4j.properties
+        ├── logback.xml
         └── image.png                 # fixture for the media-upload test
 Dockerfile
 pom.xml
-project.properties                    # browser, URL, credentials
+project.properties.example            # template for the git-ignored project.properties
 ```
 
 ---
@@ -105,12 +105,18 @@ project.properties                    # browser, URL, credentials
 
 ### Configuration
 
-All runtime settings live in [`project.properties`](project.properties):
+Runtime settings live in `project.properties`, which is **git-ignored** so credentials never reach the repo. Create it from the provided template:
+
+```bash
+cp project.properties.example project.properties
+```
+
+Then fill in the values:
 
 ```properties
 browser=CHROME
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=********
+ADMIN_USERNAME=your_admin_username
+ADMIN_PASSWORD=your_admin_password
 PROD_URL=https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin
 ```
 

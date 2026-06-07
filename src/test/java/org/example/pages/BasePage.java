@@ -1,17 +1,18 @@
 package org.example.pages;
 
-import org.apache.log4j.Logger;
 import org.example.webDriver.Browser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
 public abstract class BasePage {
 
     protected WebDriver driver;
-    protected static final Logger logger = Logger.getLogger(BasePage.class);
+    protected static final Logger logger = LoggerFactory.getLogger(BasePage.class);
     protected Actions actions = new Actions(Browser.getDriver());
     protected WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(25));
 

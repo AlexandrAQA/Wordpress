@@ -1,0 +1,13 @@
+# Copy this file to `project.properties` and fill in the values.
+#   cp project.properties.example project.properties
+# `project.properties` is git-ignored so credentials never land in the repo.
+
+# Browser to run the suite with: CHROME | FIREFOX | EDGE | MOBILE
+browser=CHROME
+
+# WordPress admin credentials
+ADMIN_USERNAME=your_admin_username
+ADMIN_PASSWORD=your_admin_password
+
+# Base URL of the WordPress admin panel under test
+PROD_URL=https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin

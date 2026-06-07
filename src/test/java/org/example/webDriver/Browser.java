@@ -1,11 +1,9 @@
 package org.example.webDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.utils.PropertyReader;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class Browser {
 
@@ -15,16 +13,17 @@ public class Browser {
     }
 
     private static void initDriver() {
-        WebDriverManager.chromedriver().setup();
         PropertyReader propertyReader = new PropertyReader();
         String browserType = propertyReader.getBrowser();
-        if (browserType != null) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
-        } else {
+        if (browserType == null) {
             throw new RuntimeException("Browser type is not specified in the project.properties file");
+        }
+
+        BrowserTypeEnum type = BrowserTypeEnum.valueOf(browserType.trim().toUpperCase());
+        driver = BrowserFactory.createInstance(type);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        if (type != BrowserTypeEnum.MOBILE) {
+            driver.manage().window().maximize();
         }
     }
 

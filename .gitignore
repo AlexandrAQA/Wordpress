@@ -25,6 +25,9 @@ geckodriver*
 *.iml
 *.ipr
 
+### Secrets / local config (use project.properties.example as a template) ###
+project.properties
+
 ### OS files ###
 .DS_Store
 Thumbs.db

@@ -21,7 +21,6 @@ public class QuickDraftTest extends BaseTest{
         loginPage.login(username, password);
         mainPage.createQuickDraft(randomTitle, randomContent);
 
-       // wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//a[@class='row-title'][1]")));
         List<String> draftTitles = postsPage.getLatestDraftTitles();
         assertTrue(draftTitles.size() > 0, "No drafts found.");
         assertEquals(draftTitles.get(0), randomTitle, "Title is not correct");
@@ -37,7 +36,6 @@ public class QuickDraftTest extends BaseTest{
         loginPage.login(username, password);
         mainPage.createQuickDraft("not randomTitle", "not randomContent");
 
-        // wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//a[@class='row-title'][1]")));
         List<String> draftTitles = postsPage.getLatestDraftTitles();
         assertTrue(draftTitles.size() > 0, "No drafts found.");
         assertEquals(draftTitles.get(0), "not randomTitle", "Title is not correct");
