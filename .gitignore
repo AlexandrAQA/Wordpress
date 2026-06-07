@@ -3,11 +3,28 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Maven ###
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+### Test / report artifacts ###
+logs/
+*.log
+allure-results/
+allure-report/
+.allure/
+
+### WebDriver binaries (managed by WebDriverManager at runtime) ###
+*.exe
+chromedriver*
+geckodriver*
+
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+.idea/
 *.iws
 *.iml
 *.ipr
+
+### OS files ###
+.DS_Store
+Thumbs.db

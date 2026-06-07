@@ -18,16 +18,17 @@ public class BrowserFactory {
                 driver = new ChromeDriver(options);
                 break;
             case FIREFOX:
-                System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
             case EDGE:
+                WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 break;
             case MOBILE:
                 ChromeOptions mobileOptions = new ChromeOptions();
                 mobileOptions.addArguments("--window-size=375,812");
-                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(mobileOptions);
                 break;
             default:

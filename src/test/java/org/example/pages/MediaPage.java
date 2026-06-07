@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class MediaPage extends BasePage {
     private static final By ADD_NEW_MEDIA_ITEM_LOCATOR = By.id(".//a[@class='page-title-action']");
     private static final By CHOOSE_FILE_LOCATOR = By.xpath("//input[@id='async-upload']");
     private static final By UPLOAD_NEW_MEDIA_BUTTON_LOCATOR = By.xpath("//input[@id='html-upload']");
-    private static final String IMAGE_PNG_PATH = "C:\\My_Files\\ItAcademyCourse\\code\\Wordpress\\src\\test\\resources\\image.png";
+    private static final String IMAGE_PNG_PATH = new File("src/test/resources/image.png").getAbsolutePath();
 
 
     public MediaPage(WebDriver driver) {
@@ -33,7 +34,7 @@ public class MediaPage extends BasePage {
         driver.get("https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin/media-new.php");
 
         WebElement uploadElement = driver.findElement(CHOOSE_FILE_LOCATOR);
-        uploadElement.sendKeys("C:\\My_Files\\ItAcademyCourse\\code\\Wordpress\\src\\test\\resources\\image.png");
+        uploadElement.sendKeys(IMAGE_PNG_PATH);
         driver.findElement(UPLOAD_NEW_MEDIA_BUTTON_LOCATOR).click();
     }
 
