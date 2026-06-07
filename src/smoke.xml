@@ -3,6 +3,7 @@
     <test name="Smoke">
         <classes>
             <class name="org.example.tests.LoginTest"/>
+            <class name="org.example.tests.PostTest"/>
         </classes>
     </test>
 </suite>

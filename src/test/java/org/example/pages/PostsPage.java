@@ -2,10 +2,27 @@ package org.example.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PostsPage extends BasePage {
-    public static final By POSTS_PAGE_HEADER_LOCATOR = By.xpath(".//h1[@class='wp-heading-inline']");
-    public static final By POSTS_PAGE_ITEMS_LIST_LOCATOR = By.id("the-list");
+    private static final By POSTS_PAGE_HEADER_LOCATOR = By.xpath(".//h1[@class='wp-heading-inline']");
+    private static final By VIEW_ALL_DRAFTS_BUTTON_LOCATOR =
+            By.xpath(".//a[@href='https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin/edit.php?post_status=draft'][contains(text(),'View all drafts')]");
+    private static final By LATEST_DRAFT_TITLE_LOCATOR = By.xpath(".//a[@class='row-title'][1]");
+
+    private static final String POSTS_PAGE_URL = "https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin/edit.php";
+    private static final By ADD_NEW_POST_BUTTON_LOCATOR = By.xpath(".//a[@class='page-title-action']");
+    private static final By ADD_TEXT_FOR_POST_LOCATOR = By.xpath("//span[@data-rich-text-placeholder='Type / to choose a block']");
+    private static final By ADD_TITLE_LOCATOR = By.xpath("//*[contains(text(),'Add title')]");
+    private static final By PUBLISH_BUTTON_LOCATOR = By.xpath(".//button[@class='components-button editor-post-publish-button editor-post-publish-button__button is-primary']");
+    private static final By POSTS_PAGE_ITEMS_LIST_LOCATOR = By.id("the-list");
+
 
     public PostsPage(WebDriver driver) {
         super(driver);
@@ -13,6 +30,65 @@ public class PostsPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return false;
+        if (POSTS_PAGE_HEADER_LOCATOR.equals("Posts")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void clickOnViewAllDrafts() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(VIEW_ALL_DRAFTS_BUTTON_LOCATOR)).click();
+    }
+
+    public List<String> getLatestDraftTitles() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LATEST_DRAFT_TITLE_LOCATOR));
+        List<WebElement> elements = driver.findElements(LATEST_DRAFT_TITLE_LOCATOR);
+        return elements.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
+
+// todo   @FindBy(xpath = ".//iframe[@name='editor-canvas']")
+//    public WebElement iframe;
+
+    public void openPostPageAndClickOnCreatingPost() {
+        driver.get(POSTS_PAGE_URL);
+        driver.findElement(ADD_NEW_POST_BUTTON_LOCATOR).click();
+    }
+
+    public void createNewPost(String title, String text) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement iframe = driver.findElement(By.xpath(".//iframe[@name='editor-canvas']"));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated((By) iframe));
+//        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
+        driver.switchTo().frame(iframe);
+        driver.switchTo().defaultContent();
+        driver.findElement(ADD_TITLE_LOCATOR);
+        driver.findElement(PUBLISH_BUTTON_LOCATOR);
+        driver.switchTo().frame(iframe);
+        driver.switchTo().defaultContent();
+        driver.findElement(ADD_TITLE_LOCATOR).isEnabled();
+
+        driver.findElement(PUBLISH_BUTTON_LOCATOR).click();
+        //clickTitleAndTextToSendKeys(title, text);
+    }
+
+    public void clickTitleAndTextToSendKeys(String title, String text) {
+        driver.findElement(ADD_TITLE_LOCATOR).sendKeys(title);
+        driver.findElement(ADD_TEXT_FOR_POST_LOCATOR).sendKeys(text);
+        driver.findElement(PUBLISH_BUTTON_LOCATOR).click();
+    }
+
+
+    public void createPost2(String title, String text) {
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath(".//iframe[@name='editor-canvas']")));
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(driver.findElement(By.xpath(".//iframe[@name='editor-canvas']")));
+        WebElement element1 = driver.findElement(By.className("edit-post-visual-editor__post-title-wrapper"));
+        element1.click();
+        WebElement element2 = element1.findElement(By.xpath(".//h1[@contenteditable='true']"));
+        element2.clear();
+        element2.sendKeys(title);
+        driver.switchTo().defaultContent();
     }
 }

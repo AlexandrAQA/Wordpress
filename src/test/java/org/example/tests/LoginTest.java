@@ -26,7 +26,7 @@ public class LoginTest extends BaseTest {
         loginPage.openLoginPage(url);
         logger.debug("login with valid credentials.");
         loginPage.login(username, password);
-        assertTrue(dashboardPage.isDashboardPageOpened(), "User can not logIn or Dashboard page is not opened");
+        assertTrue(mainPage.isDisplayed(), "User can not logIn or Dashboard page is not opened");
         logger.debug("User logged in successfully with valid credentials.");
     }
 
