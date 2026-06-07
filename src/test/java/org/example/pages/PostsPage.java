@@ -1,10 +1,9 @@
 package org.example.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +18,7 @@ public class PostsPage extends BasePage {
     private static final By ADD_TITLE_LOCATOR = By.xpath("//*[contains(text(),'Add title')]");
     private static final By PUBLISH_BUTTON_LOCATOR = By.xpath(".//button[@class='components-button editor-post-publish-button editor-post-publish-button__button is-primary']");
     private static final By POSTS_PAGE_ITEMS_LIST_LOCATOR = By.id("the-list");
+    private static final By VIEW_ALL_POSTS_LOCATOR = By.xpath(".//a[@class='row-title']");
 
 
     public PostsPage(WebDriver driver) {
@@ -49,13 +49,7 @@ public class PostsPage extends BasePage {
         driver.findElement(ADD_NEW_POST_BUTTON_LOCATOR).click();
     }
 
-    public void clickTitleAndTextToSendKeys(String title, String text) {
-        driver.findElement(ADD_TITLE_LOCATOR).sendKeys(title);
-        driver.findElement(ADD_TEXT_FOR_POST_LOCATOR).sendKeys(text);
-        driver.findElement(PUBLISH_BUTTON_LOCATOR).click();
-    }
-
-    public void createNewPost(String title, String text) {
+    public void createNewPost(String title) {
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath(".//iframe[@name='editor-canvas']")));
         driver.switchTo().defaultContent();
         driver.switchTo().frame(driver.findElement(By.xpath(".//iframe[@name='editor-canvas']")));
@@ -64,7 +58,35 @@ public class PostsPage extends BasePage {
         WebElement contenteditableTrue = wrapper.findElement(By.xpath(".//h1[@contenteditable='true']"));
         contenteditableTrue.clear();
         contenteditableTrue.sendKeys(title);
+        logger.info("Title is added");
         driver.switchTo().defaultContent();
-        System.out.println("Title is added");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PUBLISH_BUTTON_LOCATOR));
+        driver.findElement(PUBLISH_BUTTON_LOCATOR).click();
+        logger.info("Post is published");
+
+    }
+    public boolean isTheLastPostNameCorrect(String titleName) {
+        wait.withTimeout(Duration.ofSeconds(10));
+        driver.get(POSTS_PAGE_URL);
+        wait.withTimeout(Duration.ofSeconds(10));
+        try {
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (NoAlertPresentException e) {
+            logger.info("No alert found");
+        }
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(VIEW_ALL_POSTS_LOCATOR));
+        List<WebElement> allPosts = driver.findElements(VIEW_ALL_POSTS_LOCATOR);
+        wait.withTimeout(Duration.ofSeconds(10));
+
+        for (WebElement post : allPosts) {
+            if(post.getText().contains(titleName)) {
+                System.out.println("Post with title " + titleName + " found");
+                return true;
+            } else {
+                logger.error("Post with title " + titleName + " not found");
+            }
+        }
+        return false;
     }
 }

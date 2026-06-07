@@ -1,8 +1,11 @@
 package org.example.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PostTest extends BaseTest{
+
+    private String title = "1st Test title";
 
     @Test
     public void userShouldCreatePost() {
@@ -10,8 +13,7 @@ public class PostTest extends BaseTest{
         loginPage.openLoginPage(url);
         loginPage.login(username, password);
         postsPage.openPostPageAndClickOnCreatingPost();
-        postsPage.createNewPost("1st Test title", "Try it again. Fail again. Fail better.");
-
-       // assertTrue(postsPage.isPostCreated(), "Post is not created");
+        postsPage.createNewPost(title);
+        Assert.assertTrue(postsPage.isTheLastPostNameCorrect(title));
     }
 }
