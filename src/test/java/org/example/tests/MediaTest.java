@@ -1,6 +1,5 @@
 package org.example.tests;
 
-import org.example.pages.MediaPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

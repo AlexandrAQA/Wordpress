@@ -4,6 +4,9 @@
         <classes>
             <class name="org.example.tests.LoginTest"/>
             <class name="org.example.tests.PostTest"/>
+            <class name="org.example.tests.LogOutTest"/>
+            <class name="org.example.tests.MediaTest"/>
+            <class name="org.example.tests.QuickDraftTest"/>
         </classes>
     </test>
 </suite>

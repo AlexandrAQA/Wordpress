@@ -10,8 +10,7 @@ import java.util.stream.Collectors;
 
 public class PostsPage extends BasePage {
     private static final By POSTS_PAGE_HEADER_LOCATOR = By.xpath(".//h1[@class='wp-heading-inline']");
-    private static final By VIEW_ALL_DRAFTS_BUTTON_LOCATOR =
-            By.xpath(".//a[@href='https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin/edit.php?post_status=draft'][contains(text(),'View all drafts')]");
+
     private static final By LATEST_DRAFT_TITLE_LOCATOR = By.xpath(".//a[@class='row-title'][1]");
 
     private static final String POSTS_PAGE_URL = "https://wordpress-test-app-for-selenium.azurewebsites.net/wp-admin/edit.php";
@@ -33,10 +32,6 @@ public class PostsPage extends BasePage {
         } else {
             return false;
         }
-    }
-
-    public void clickOnViewAllDrafts() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(VIEW_ALL_DRAFTS_BUTTON_LOCATOR)).click();
     }
 
     public List<String> getLatestDraftTitles() {
