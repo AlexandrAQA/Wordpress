@@ -26,8 +26,8 @@ public class BrowserFactory {
                 break;
             case MOBILE:
                 ChromeOptions mobileOptions = new ChromeOptions();
-                mobileOptions.addArguments("--window-size=375,812"); // Пример мобильного разрешения iPhone X
-                System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+                mobileOptions.addArguments("--window-size=375,812");
+                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
                 driver = new ChromeDriver(mobileOptions);
                 break;
             default:
