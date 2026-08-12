@@ -1,5 +1,12 @@
 # WordPress UI Test Automation Framework
 
+> **About this repository.** This is a training project from 2024, built while I was learning test automation fundamentals. I keep it public because the engineering practices in it still hold up: Page Object Model, a browser factory, externalized configuration, Allure reporting and a Dockerized headless run for CI.
+>
+> **My current automation work is in TypeScript with Playwright:**
+>
+> * [**grocerly-playwright**](https://github.com/AlexandrAQA/grocerly-playwright) : end to end test framework built from scratch. Page Object Model, fixtures, role based locators and web first assertions; covers routing, route guards and authenticated states, with HTML reporting.
+> * [**jira-playwright-ai-agent**](https://github.com/AlexandrAQA/jira-playwright-ai-agent) : an AI QA agent that turns a Jira ticket into a running end to end test. It reads the ticket, finds real selectors through Playwright MCP, generates and runs a Playwright test in TypeScript, and writes the result back to Jira.
+
 [![Java](https://img.shields.io/badge/Java-11-orange.svg)](https://www.oracle.com/java/)
 [![Selenium](https://img.shields.io/badge/Selenium-4.27-43B02A.svg)](https://www.selenium.dev/)
 [![TestNG](https://img.shields.io/badge/TestNG-7.10-red.svg)](https://testng.org/)
